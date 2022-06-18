@@ -2,8 +2,10 @@ package com.silvercloud.pdflogger.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "test1")
 public class MockData {
     @Id
     private Integer id;
@@ -14,6 +16,10 @@ public class MockData {
         this.id = id;
         this.time = time;
         this.temperature = temperature;
+    }
+
+    public MockData() {
+
     }
 
     public Integer getId() {
