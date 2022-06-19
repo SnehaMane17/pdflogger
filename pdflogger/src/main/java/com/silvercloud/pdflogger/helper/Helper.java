@@ -14,8 +14,11 @@ import java.util.List;
 
 public class Helper {
 
+    public Helper() {
+    }
+
     //CHECK FILE IF EXCEL OR NOT?
-    public static boolean checkExcelFormat(MultipartFile file) {
+    public  boolean checkExcelFormat(MultipartFile file) {
         String contentType = file.getContentType();
 
         if (contentType.equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")){
@@ -26,7 +29,7 @@ public class Helper {
     }
 
     //Convert Excel to List of Mock data.
-    public static List<Mockdata> convertExcelToListOfMockdata(InputStream is){
+    public  List<Mockdata> convertExcelToListOfMockdata(InputStream is){
 
         List <Mockdata> list = new ArrayList<>();
 

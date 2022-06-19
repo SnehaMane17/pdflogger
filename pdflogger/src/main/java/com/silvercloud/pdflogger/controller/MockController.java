@@ -15,12 +15,14 @@ import java.util.Map;
 @RestController
 @CrossOrigin("*")
 public class MockController {
+
     @Autowired
     private MockService mockService;
+//    private MockService mockService= new MockService();
 
     @PostMapping("/mockdata/upload")
     public ResponseEntity<?> upload(@RequestParam("file")MultipartFile file){
-        if(Helper.checkExcelFormat(file))
+        if(helper.checkExcelFormat(file))
         {
             //true
             this.mockService.save(file);
@@ -28,6 +30,7 @@ public class MockController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Pleas upload Excel file only");
     }
+    private final Helper helper = new Helper();
 
     @GetMapping("/mockdata")
     public List<Mockdata> getAllMockData(){
